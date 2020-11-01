@@ -34,6 +34,21 @@ private:
 	std::shared_ptr<Backend::IndexBuffer> ib_;
 
 public:
+	std::shared_ptr<Backend::VertexBuffer>& GetVertexBuffer()
+	{
+		return vb_;
+	}
+	std::shared_ptr<Backend::IndexBuffer>& GetIndexBuffer()
+	{
+		return ib_;
+	}
+
+	int32_t GetIndexCount() const
+	{
+		return indexCount_;
+	}
+
+	static std::shared_ptr<StaticMesh> Create(std::shared_ptr<Backend::GraphicsDevice> graphicsDevice, Effekseer::CustomVector<StaticMeshVertex> vertexes, Effekseer::CustomVector<int32_t> indexes);
 };
 
 class StaticMeshRenderer
@@ -62,11 +77,13 @@ private:
 
 	std::shared_ptr<StaticMesh> staticMesh_;
 
-	StaticMeshRenderer();
 
 public:
 	static std::shared_ptr<StaticMeshRenderer> Create(std::shared_ptr<Backend::GraphicsDevice> graphicsDevice);
+	StaticMeshRenderer();
 	void Render(const RendererParameter& rendererParameter);
+
+	void SetStaticMesh(const std::shared_ptr<StaticMesh>& mesh);
 };
 
 } // namespace Tool

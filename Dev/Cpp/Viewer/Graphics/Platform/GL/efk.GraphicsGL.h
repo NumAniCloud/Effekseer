@@ -4,6 +4,7 @@
 #include <Effekseer.h>
 #include <EffekseerRendererGL/EffekseerRenderer/EffekseerRendererGL.Renderer.h>
 #include <EffekseerRendererGL/EffekseerRenderer/EffekseerRendererGL.RendererImplemented.h>
+#include <EffekseerRendererGL/EffekseerRenderer/GraphicsDevice.h>
 
 #include "../../efk.Graphics.h"
 

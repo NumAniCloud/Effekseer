@@ -855,6 +855,11 @@ PipelineState ::~PipelineState()
 
 bool PipelineState::Init(const Effekseer::Backend::PipelineStateParameter& param)
 {
+	if (param.ShaderPtr == nullptr)
+	{
+		return false;
+	}
+
 	shader_ = Effekseer::CreateReference(static_cast<Shader*>(param.ShaderPtr), true);
 	vertexLayout_ = Effekseer::CreateReference(static_cast<VertexLayout*>(param.VertexLayoutPtr), true);
 
